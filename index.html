@@ -1,0 +1,166 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weatherly | Weather Dashboard</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Weatherly</a>
+      <span class="navbar-text">Your daily forecast</span>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-md-5">
+
+    <!-- Heading -->
+    <header class="mb-4">
+      <h1 class="display-5 fw-bold">Weather Dashboard</h1>
+      <p class="text-secondary">
+        Frontend demo with sample weather data — not a live forecast.
+      </p>
+    </header>
+
+    <!-- Sample city picker -->
+    <form id="city-form" class="mb-4">
+      <label for="city-input" class="form-label">
+        Preview a sample city
+      </label>
+
+      <div class="input-group input-group-lg">
+        <input
+          type="text"
+          id="city-input"
+          class="form-control"
+          placeholder="Try Lucknow, London, or Tokyo"
+          list="sample-cities"
+          value="Lucknow"
+          required
+        >
+        <datalist id="sample-cities">
+          <option value="Lucknow"></option>
+          <option value="London"></option>
+          <option value="Tokyo"></option>
+        </datalist>
+
+        <button class="btn btn-primary" type="submit">
+          Preview
+        </button>
+      </div>
+    </form>
+
+    <!-- Error / Loading Message -->
+    <div
+      id="status-message"
+      class="alert alert-info d-none"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <!-- Current Weather -->
+    <section class="weather-hero p-4 p-md-5 mb-4 rounded-4">
+      <div class="row align-items-center g-4">
+
+        <div class="col-md-7">
+          <p class="text-uppercase small mb-2">Sample weather</p>
+
+          <h2 id="city-name">Lucknow</h2>
+          <p id="weather-description">Partly cloudy</p>
+
+          <div class="d-flex align-items-center gap-3">
+            <span id="weather-icon" class="display-1">🌤️</span>
+            <h3 class="display-2 fw-bold mb-0">
+              <span id="temperature">28</span>°
+            </h3>
+          </div>
+        </div>
+
+        <div class="col-md-5 text-md-end">
+          <p id="feels">Feels like</p>
+          <h4><span id="feels-like">30</span>°C</h4>
+          <p class="mb-0">
+            Demo preview
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Weather Details -->
+    <section class="mb-5">
+      <h2 class="h4 fw-bold mb-3">Today's Highlights</h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+
+        <div class="col">
+          <div class="card weather-card h-100">
+            <div class="card-body">
+              <p class="text-secondary mb-2">Humidity</p>
+              <h3><span id="humidity">65</span>%</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card weather-card h-100">
+            <div class="card-body">
+              <p class="text-secondary mb-2">Wind speed</p>
+              <h3><span id="wind-speed">12</span> km/h</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card weather-card h-100">
+            <div class="card-body">
+              <p class="text-secondary mb-2">Feels like</p>
+              <h3><span id="highlight-feels-like">30</span>°C</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Forecast -->
+    <section>
+      <h2 class="h4 fw-bold mb-3">Sample 5-Day Forecast</h2>
+
+      <div
+        id="forecast-container"
+        class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3"
+      >
+        <div class="col">
+          <div class="card weather-card text-center h-100">
+            <div class="card-body">
+              <p class="text-secondary small">Today</p>
+              <div class="fs-2">🌤️</div>
+              <h3 class="h5">28°C</h3>
+              <p class="small mb-0">Partly cloudy</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
